@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rumo aos 1000 - Método ENEM 2025</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Variáveis de Cores Vivas (Brasileiras/Mentos) */
+        :root {
+            --cor-primaria: #2067df; /* NOVO AZUL: #2067df */
+            --cor-secundaria: #28a745; /* Verde Sucesso Vibrante */
+            --cor-destaque: #ffc107; /* Amarelo/Dourado Vibrante */
+            --cor-urgencia: #dc3545; /* Vermelho Alerta */
+            --cor-texto: #333;
+            --cor-fundo: #ffffff; /* Fundo Branco (Páginas) */
+        }
+        
+        /* Estilos CSS com EFEITOS e Transições */
+        body {
+            font-family: 'Poppins', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9; 
+            color: var(--cor-texto);
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        header {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        
+        /* Seção CTA Principal - Fundo Verde */
+        .cta-section {
+            background-color: var(--cor-secundaria);
+            color: white;
+            padding: 70px 0;
+            text-align: center;
+            /* Efeito: Gradiente suave ao fundo */
+            background-image: linear-gradient(135deg, var(--cor-secundaria) 0%, #1e8d35 100%);
+        }
+        .price-new {
+            font-size: 3.2em;
+            font-weight: 700;
+            color: var(--cor-destaque);
+            display: block;
+            margin-top: 5px;
+        }
+        .cta-button {
+            background-color: var(--cor-destaque); 
+            color: var(--cor-texto); 
+            padding: 18px 35px;
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out; /* Transição em todos os estados */
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button:hover {
+            background-color: #e3b000;
+            transform: scale(1.05); /* Efeito: Aumenta sutilmente no hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Seções de Conteúdo - Fundo Branco com Sombra */
+        .content-section, .review-section {
+            padding: 60px 0;
+            background-color: var(--cor-fundo); 
+            transition: background-color 0.5s;
+        }
+        .content-section h2, .review-section h2 {
+            text-align: center;
+            color: var(--cor-primaria);
+            border-bottom: 3px solid var(--cor-secundaria);
+        }
+        
+        /* Efeito de Card */
+        .feature-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--cor-primaria);
+            transition: transform 0.3s ease-out, box-shadow 0.3s;
+        }
+        .feature-item:hover {
+            transform: translateY(-8px); /* Efeito: Flutua mais alto no hover */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Seção Redação - Azul Claro */
+        .redacao-section {
+            background-color: #e6f7ff; 
+            padding: 70px 0;
+        }
+        .redacao-info .image .score {
+            font-size: 8.5em; /* Aumenta um pouco */
+            font-weight: 700;
+            color: var(--cor-secundaria);
+            transition: color 0.5s;
+        }
+        .review-card {
+            border-left: 6px solid var(--cor-destaque);
+            transition: border-left 0.3s;
+        }
+        .review-card:hover {
+            border-left: 10px solid var(--cor-primaria); /* Efeito: Mudar cor e espessura no hover */
+        }
+
+        /* Seção CTA Final - Fundo Vermelho */
+        .cta-final {
+            background-color: var(--cor-urgencia);
+            padding: 60px 0;
+        }
+
+        /* Botão de Compra Flutuante (Fixo) */
+        .floating-cta {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--cor-urgencia); 
+            color: white;
+            padding: 18px 28px; /* Aumenta um pouco o padding */
+            border-radius: 50px; 
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 700;
+            z-index: 1000; 
+            animation: pulse-glow 1.8s infinite; /* Nova animação mais intensa */
+            display: flex;
+            align-items: center;
+        }
+        .floating-cta:hover {
+            background-color: #b02a37;
+            transform: scale(1.05);
+        }
+
+        /* Animação com Pulse e Sombra (Glow) */
+        @keyframes pulse-glow {
+            0% { transform: scale(1); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); }
+            50% { transform: scale(1.06); box-shadow: 0 0 20px var(--cor-urgencia), 0 0 10px var(--cor-urgencia); }
+            100% { transform: scale(1); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); }
+        }
+
+        /* Media Queries para Responsividade */
+        @media (max-width: 768px) {
+            .redacao-info {
+                flex-direction: column;
+            }
+            .floating-cta {
+                bottom: 15px;
+                right: 15px;
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Rumo ao 1000</h1>
+            <p>O Método Comprovado para Gabaritar o ENEM 2025</p>
+        </div>
+    </header>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Transforme seus Estudos e Conquiste a Universidade dos Sonhos!</h2>
+            <p>Estratégias e temas prováveis de quem já alcançou a nota máxima no ENEM.</p>
+
+            <div class="price-box">
+                <span class="price-original">De R$45,00</span>
+                <span class="price-new">Por R$16,90</span> 
+                <p style="margin-top: 5px; font-weight: 600; font-size: 1.1em;">Oferta de lançamento por tempo super limitado.</p>
+            </div>
+            
+            <a href="https://pay.cakto.com.br/3evp8b7_629797" target="_blank" class="cta-button">QUERO GABARITAR O ENEM AGORA!</a>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>A Estratégia dos Vencedores</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-chart-line"></i> 
+                    <h3>Domínio do TRI</h3>
+                    <p>Entenda a Teoria da Resposta ao Item. Priorize questões que domina para maximizar sua nota. Acertar as questões fáceis é fundamental, as difíceis são o bônus.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-bullseye"></i> 
+                    <h3>Foco no Essencial</h3>
+                    <p>Saiba onde investir seu tempo: Matemática e Ciências da Natureza com Peso Alto. Sua pontuação será impulsionada pela estratégia correta de estudo e prova.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-globe"></i> 
+                    <h3>Interdisciplinaridade</h3>
+                    <p>O ENEM 2025 terá conexão crescente entre as áreas. Foco em atualidades, como temas sociais, ambientais e culturais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="redacao-section">
+        <div class="container">
+            <h2>Redação: O Caminho dos 1000</h2>
+            <div class="redacao-info">
+                <div class="text">
+                    <p>A Redação tem Peso Alto e é a chave para o 1000. Siga os passos para uma nota máxima (Competência 5 incluída):</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Introdução Impactante: Contextualize o tema com dados atuais e declare sua tese de forma direta.</li>
+                        <li><i class="fas fa-check-circle"></i> Desenvolvimento Consistente: Apresente pelo menos dois argumentos fortes com exemplos socioculturais relevantes.</li>
+                        <li><i class="fas fa-check-circle"></i> Conclusão com Solução: Proponha intervenção detalhada: quem fará, como fará e qual será o impacto concreto na sociedade.</li>
+                    </ul>
+                    <p style="font-weight: 600;">O manual detalha como não zerar na Competência 5: não apenas diga que é necessário agir - explique o processo de forma viável!</p>
+                </div>
+                <div class="image">
+                    <p class="score">1000</p> 
+                    <p style="color: var(--cor-secundaria); font-size: 1.2em;">É a sua próxima nota.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="review-section">
+        <div class="container">
+            <h2>Resultados Comprovados</h2>
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Com essas dicas e o cronograma do guia, estou muito confiante para o ENEM. As estratégias me fizeram ganhar tempo precioso e focar no que realmente importa."</p>
+                    <div class="author">- Júlia S., Aspirante a Medicina</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"O foco na Competência 5 da Redação foi um divisor de águas. Entendi que a solução precisa ser viável e detalhada. Recomendo demais!"</p>
+                    <div class="author">- Pedro M., Estudante de Direito</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"A organização de estudo diário e as técnicas de memorização transformaram minha rotina. Minha nota nos simulados subiu absurdamente!"</p>
+                    <div class="author">- Ana L., Futura Engenheira</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="content-section" style="background-color: #f4f4f9;">
+        <div class="container">
+            <h2>Cronograma e Técnicas de Estudo</h2>
+            <p style="text-align: center; font-size: 1.1em; color: #555; margin-bottom: 30px;">O Guia inclui um plano semanal comprovado para te levar à aprovação:</p>
+            <div class="feature-grid">
+                <div class="feature-item" style="border-top-color: var(--cor-secundaria);">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Segunda-feira</h3>
+                    <p>Redação (2h) + Matemática (1h). Priorize o conteúdo de maior peso logo no início da semana.</p>
+                </div>
+                <div class="feature-item" style="border-top-color: var(--cor-destaque);">
+                    <i class="fas fa-search-plus"></i>
+                    <h3>Quinta-feira</h3>
+                    <p>Matemática (1h) + Revisão geral (1h). Dedique tempo para revisar e consolidar o aprendizado (Revisão Espaçada).</p>
+                </div>
+                <div class="feature-item" style="border-top-color: var(--cor-primaria);">
+                    <i class="fas fa-hourglass-half"></i>
+                    <h3>Sexta-feira</h3>
+                    <p>Linguagens (1h) + Simulado cronometrado. Pratique sob pressão para gerenciar o tempo de prova.</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 40px; font-weight: 600; color: var(--cor-primaria);">Revisão espaçada é fundamental: reveja o conteúdo em intervalos progressivos (1 dia, 3 dias, 1 semana) para a retenção de longo prazo.</p>
+        </div>
+    </section>
+
+    <section class="cta-section cta-final" id="comprar">
+        <div class="container">
+            <h2>Não Deixe Seu Sonho Para a Sorte.</h2>
+            <p style="font-size: 1.3em; color: white;">Alcançar 1000 não é sorte - é estratégia aplicada. Garanta o seu Guia e comece hoje mesmo!</p>
+             <div class="price-box">
+                <span class="price-original" style="color: white;">De R$45,00</span>
+                <span class="price-new" style="color: var(--cor-destaque);">Por R$16,90</span>
+            </div>
+            <a href="https://pay.cakto.com.br/3evp8b7_629797" target="_blank" class="cta-button" style="background-color: white; color: var(--cor-urgencia);">COMPRAR O MÉTODO RUMO AO 1000</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Rumo ao 1000. Todos os direitos reservados. Guia de Estratégias ENEM.</p>
+        </div>
+    </footer>
+    
+    <a href="https://pay.cakto.com.br/3evp8b7_629797" target="_blank" class="floating-cta">
+        <i class="fas fa-shopping-cart"></i> COMPRE AGORA
+    </a>
+
+</body>
+</html>
